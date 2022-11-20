@@ -6,6 +6,7 @@ def update(path)
   FileUtils.cp_r("public/css/", pub + "/css/");
   FileUtils.cp_r("public/js/", pub + "/js/");
   FileUtils.cp("public/spa.html", pub + "/spa.html");
+  FileUtils.cp("sec.txt", sec + "/sec.txt");
 end
 
 if __FILE__ == $0 then

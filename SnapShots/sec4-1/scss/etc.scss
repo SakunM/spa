@@ -1,0 +1,15 @@
+figure {
+  position: relative;
+  margin-right: 20px;
+  width: 400px;
+
+  img{
+    width: 100%;
+  }
+  figcaption {
+    position: absolute;
+    right: 0; bottom: 0;
+    font-size: 86%;
+    color: #fff; background: #333;
+  }
+}
