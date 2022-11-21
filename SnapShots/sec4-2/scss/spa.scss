@@ -1,10 +1,3 @@
-// @import "ref/mixins";
-
-@mixin abs_pos($t:0, $r:0, $b:0, $l:0){
-  position: absolute;
-  top: $t; right: $r; bottom: $b; left: $l;
-}
-
 *{
   margin: 0; padding: 0;
   box-sizing: border-box;
@@ -29,33 +22,42 @@ html {
 }
 
 #spa {
-  @include abs_pos(8px, 8px, 8px, 8px);
-  min: {height: 15em; width: 35em;}
+  position: absolute;
+  top: 8px; left: 8px;
+  bottom: 8px; right: 8px;
+
+  min-height: 500px;
+  min-width: 500px;
   overflow: hidden;
-  border-radius: 8px 8px 0 0;
+
+  border-radius: 0 8px 0 8px;
   background: #fff;
 
   .head {
-    @include abs_pos; height: 40px;
+    position: absolute;
+    top: 0; right: 0;
+    left: 0; bottom: 0;
+    height: 40px;
     
     .logo {
-      @include abs_pos(4px, null, null, 8px);
+      position: absolute;
+      top: 4px; left: 4px;
       height: 32px; width: 128px;
-      h1 { font: 800 22px/22px Arial; margin: 0;}
-      p  { font: 800 10px/10px Arial; margin: 0;}
+      background: orange;
     }
-    .search {
-      @include abs_pos(4px, 220px, null, null);
-      text-align: center; line-height: 2.5;
-      height: 32px; width: 248px; background: blue; color: #fff;
-    }
+
     .acct {
-      @include abs_pos(4px, 0, null, null);
-      height: 32px; width: 210px;
-      background: #888; color: #fff;
-      text-align: center; cursor: pointer;
-      line-height: 2.5;
-      overflow: hidden; text-overflow: ellipsis;
+      position: absolute;
+      top: 4px; right: 0;
+      height: 32px; width: 64px;
+      background: green; color: #fff;
+    }
+
+    .search {
+      position: absolute;
+      top: 4px; right: 64px;
+      width: 248px; height: 32px;
+      background: blue; color: #fff;
     }
   }
   .main {

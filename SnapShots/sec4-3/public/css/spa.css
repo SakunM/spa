@@ -48,13 +48,13 @@ html body strong {
 #spa {
   position: absolute;
   top: 8px;
-  right: 8px;
-  bottom: 8px;
   left: 8px;
+  bottom: 8px;
+  right: 8px;
   min-height: 15em;
   min-width: 35em;
   overflow: hidden;
-  border-radius: 8px 8px 0 0;
+  border-radius: 0 8px 0 8px;
   background: #fff;
 }
 
@@ -62,39 +62,18 @@ html body strong {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
+  bottom: 0;
   height: 40px;
 }
 
 #spa .head .logo {
   position: absolute;
   top: 4px;
-  left: 8px;
+  left: 4px;
   height: 32px;
   width: 128px;
-}
-
-#spa .head .logo h1 {
-  font: 800 22px/22px Arial;
-  margin: 0;
-}
-
-#spa .head .logo p {
-  font: 800 10px/10px Arial;
-  margin: 0;
-}
-
-#spa .head .search {
-  position: absolute;
-  top: 4px;
-  right: 220px;
-  text-align: center;
-  line-height: 2.5;
-  height: 32px;
-  width: 248px;
-  background: blue;
-  color: #fff;
+  background: orange;
 }
 
 #spa .head .acct {
@@ -102,14 +81,19 @@ html body strong {
   top: 4px;
   right: 0;
   height: 32px;
-  width: 210px;
-  background: #888;
+  width: 64px;
+  background: green;
   color: #fff;
-  text-align: center;
-  cursor: pointer;
-  line-height: 2.5;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+#spa .head .search {
+  position: absolute;
+  top: 4px;
+  right: 64px;
+  width: 248px;
+  height: 32px;
+  background: blue;
+  color: #fff;
 }
 
 #spa .main {

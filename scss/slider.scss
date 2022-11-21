@@ -1,0 +1,66 @@
+@import "ref/mixins";
+
+.slider{
+  @include abs_pos(null, 0, 0, null);
+  width: 25em; height: 2em; background: #fff;
+  border-radius: 0.3em 0 0 0; border-style: solid;
+  border-width: thin 0 0 thin; border-color: #888;
+  box-shadow: 0 0 0.75 0 #888; z-index: 1;
+
+  %head-closer {
+    height: 2em; line-height: 1.8em; cursor: pointer;
+    border-bottom: thin solid #888;
+    background: #888; color: #fff;
+    font-family: arial; font-weight: 800; text-align: center;
+  }
+  .head {
+    @include abs_pos(0, 2em, null, 0); @extend %head-closer;
+    border-radius: 0.3em 0 0 0;
+
+    .toggle {
+      @include abs_pos(0, null, 0, 0);
+      width: 2em; line-height: 1.9em;
+      border-radius: 0.3em 0 0 0;
+      &:hover{ background: #aaa;}
+    }
+    .title {
+      @include abs_pos(null, null, null, 50%);
+      width: 16em; margin-left: -8em;
+    }
+    &:hover .toggle { background: #444; color: #ff0;}
+  }
+  .closer {
+    @include abs_pos(null, 0, null, null); @extend %head-closer;
+    width: 2em; &:hover { background: #800;}
+  }
+  .sizer {
+    @include abs_pos(2.5em, 0, null, 0);
+    // height: 8em;
+    .msgs {
+      @include abs_pos(1em, 1em, 4em, 1em);
+      padding: 0.5em; border: thin solid #888;
+      overflow-x: hidden; overflow-y: scroll;
+    }
+    .box {
+      @include abs_pos(null, 1em, 1em, 1em);
+      border: thin solid #888; height: 2em;
+      background: #888;
+
+      input[type=text] {
+        float: left; width: 75%; height: 100%;
+        padding: 0.5em; border: 0;
+        background: #ddd; color: #404040;
+        &:focus{ background: #fff;}
+      }
+      div {
+        float: left; width: 25%; height: 2em;
+        line-height: 1.9em; text-align: center;
+        color: #fff; font-weight: 800; cursor: pointer;
+        &:hover{ background: #444; color: #ff0;}
+      }
+
+    }
+  }
+}
+
+  

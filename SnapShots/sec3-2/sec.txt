@@ -34,11 +34,19 @@
 setAnchorコールバックメソッドしかない。そしてここでchangeAnchorに渡す引数は従属キーのない主キーのみのオブジェクトだ。なので、
 changeAnchorの実装で、従属キーを取り除く処理は無用だと思える。ここもほんとに必要になるまで余計に思える処理はカットする。
 
+5章まで、進んでまた戻って来てきてしまった（笑）。自分はまだ、ブラウザの履歴管理とuriAnctorの関係について、
+まだよくわかっていない。でも、もう一度確かめたところ、少なくとも今の実行ルートでは、勝手に生成される従属キーを使わなくても、
+主キーのみの参照で問題無い事は確認できた。本書ではonHashChangeでも、スライダー開閉の実行検査で従属キーで比べているけど、
+主キーでの比較で問題ない。その意図がはっきりするまで、自分はやはりこのまま様子を見る事にする。
+
 
 第1章　最初のシングルページアプリケーション　		A:\PJ\spa\SnapShots\sec1\sec.txt
 第2章　JavaScriptのおさらい			A:\PJ\spa\SnapShots\sec2\sec.txt
 第3章　シェルの開発 前半			A:\PJ\spa\SnapShots\sec3-1\sec.txt
 第3章　シェルの開発 後半			A:\PJ\spa\SnapShots\sec3-2\sec.txt
+第4章　機能モジュールの追加		前編			A:\PJ\spa\SnapShots\sec4-1\sec.txt
+第4章　機能モジュールの追加		中編			A:\PJ\spa\SnapShots\sec4-2\sec.txt
+第4章　機能モジュールの追加		後編			A:\PJ\spa\SnapShots\sec4-3\sec.txt
 GitHub アドレス			https://github.com/SakunM/spa
 SPAファイナルReadMe			A:\PJ\spa\readme.txt
 前々回の最終バージョン	A:\PJ\JS\all\spas\spa10

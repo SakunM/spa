@@ -32,8 +32,7 @@ class Slider{
   }
   handleResize(){
     const slider = this.jq.sizer, s = this.state;
-    if(!slider){ return false;} 
-    this.setPxSize();
+    if(!slider){ return false;} this.setPxSize();
     if(s.position === "opened"){ slider.css({height: s.px.opened});} 
     return true;
   }
@@ -57,7 +56,6 @@ class Slider{
     if(s.position === "closed") {anchor("opened");}
     return false;
   }
-  webTest(spa){}
   init(anchor){
     const c = this.config, s = this.state, jq = this.jq;
     c.anchor = anchor.chat_anchor;

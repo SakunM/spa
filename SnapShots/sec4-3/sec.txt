@@ -1,0 +1,43 @@
+第4章　機能モジュールの追加　	後編		A:\PJ\spa\SnapShots\sec4-3\sec.txt
+
+
+ここでは、removeSliderの実装と、Windowのリサイズに対応する。その戦略はある一定以上アプリが縮小すると
+スライダーのメッセージボックスのサイズが一段縮んでスクロール表示できるという戦略だ。
+しかし、中編でメッセージボックスに具体的なサイズを指定して静的な設計に対応した事が裏目にでて、
+スライダーのサイズ自体は小さくできたけど、メッセージボックスは動的に変化しなくなった。
+
+なので、結局お手本通りのCSSに落ち着く。このアブソリュート値だと、静的設計時にはインプットボックスがはみ出てうっとうしい。
+でも、リサイズに対応するためには仕方がないのか？　サーバー編に行く前にぜひ新しいレイアウトを試したい。
+
+リキッドレイアウトのこの戦略は、メッセージボックスのサイズをあえて指定しない事で動的に変化できるけど、
+アブソリュート値がすべて解決するまで、兄弟要素が親要素から突き抜けてしまう。
+この事も、新しいレイアウトで解決できるのか？楽しみだ。
+
+また、removeSliderに関して、今の実装はクラス仕立てなので、クラスの生成時にグローバル変数にインスタンスを登録しないと、
+ブラウザのコンソールから、removeSliderを使う事は出来ない。なのでspa.jsで行う。でも此処でしか使わないので、
+スナップショットに保管したら削除する。
+
+
+
+
+
+
+SPAファイナル			A:\PJ\spa\spa.txt
+
+SPAファイナル			A:\PJ\spa\spa.txt
+第1章　最初のシングルページアプリケーション　		A:\PJ\spa\SnapShots\sec1\sec.txt
+第2章　JavaScriptのおさらい					A:\PJ\spa\SnapShots\sec2\sec.txt
+第3章　シェルの開発 前半					A:\PJ\spa\SnapShots\sec3-1\sec.txt
+第3章　シェルの開発 後半					A:\PJ\spa\SnapShots\sec3-2\sec.txt
+第4章　機能モジュールの追加		前半		A:\PJ\spa\SnapShots\sec4-1\sec.txt
+第4章　機能モジュールの追加　	中編		A:\PJ\spa\SnapShots\sec4-2\sec.txt
+第4章　機能モジュールの追加　	後編		A:\PJ\spa\SnapShots\sec4-3\sec.txt
+第5章　モデルの構築							A:\PJ\spa\SnapShots\sec5\sec.txt
+第6章　モデルとデータモジュールの完成			A:\PJ\spa\SnapShots\sec6\sec.txt
+
+GitHub アドレス			https://github.com/SakunM/spa
+SPAファイナルReadMe			A:\PJ\spa\readme.txt
+前々回の最終バージョン	A:\PJ\JS\all\spas\spa10
+前回の最終バージョン	A:\PJ\mamo2\langs\SPA
+今回のバージョン		A:\PJ\spa
+再々のSPA		A:\プログラミング\書籍サンプル\JS\JavaScript\SPA\再々のSPA.txt
