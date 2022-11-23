@@ -1,0 +1,25 @@
+
+.list-name {
+  cursor: pointer;
+  &:hover{ background: #aaa; color: #888;}
+}
+.list-select { background: #444; color: #ff0;}
+
+.log-msg { background: #eee;}
+
+.log-me { font-weight: 800; color: #484;}
+
+.log-alert {
+  font-style: italic;
+  background: #a88;
+  color: #fff;
+}
+.send-select {
+  background: #444;
+  color: #ff0;
+}
+
+.x-closed {
+  width: 0; height: 0;
+}
+

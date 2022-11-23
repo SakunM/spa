@@ -36,6 +36,10 @@ JavaScriptやHTMLやCSSを改良していくスタイルだ。自分の勘違い
 第4章　機能モジュールの追加		中編			A:\PJ\spa\SnapShots\sec4-2\sec.txt
 第4章　機能モジュールの追加		後編			A:\PJ\spa\SnapShots\sec4-3\sec.txt
 
+第5章　モデルの構築							A:\PJ\spa\SnapShots\sec5\sec.txt
+
+第6章　モデルとデータモジュールの完成			A:\PJ\spa\SnapShots\sec6\sec.txt
+　
 A:\PJ\spa\sec.txt
 
 
