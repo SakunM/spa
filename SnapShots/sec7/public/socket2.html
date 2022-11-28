@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link href="imgs/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ソケットの練習</title>
+  <script src="lib/jquery-1.9.1.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script id="s_a" src="data.js"></script>
+  <script>
+    $(() => $("body").html(b));
+    io.connect().on("script", path => {
+      $("#s_a").remove();
+      $("head").append('<script id="s_a" src="' + path + '"></scr' + 'ipt>');
+      $("body").html(b);
+    });
+    
+  </script>
+</head>
+<body>
+  Loading...
+</body>
+</html>

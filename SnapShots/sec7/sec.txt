@@ -1,0 +1,51 @@
+第7章　WEBサーバー							A:\PJ\spa\SnapShots\sec7\sec.txt
+
+これから暫くは制作中のアプリをはなれて、Nodeが提供するExpressサーバーの使い方を中心に学ぶ。
+最初は標準モジュールhttpから始めて、ConnectとExppressと概要が説明される。けど、Ver3時代の説明でExppress４はいわゆる、
+標準装備していたミドルウエアをすべて別個のダウンロードにした。いわゆるRuby/onRailsで大量のダウンロードが始まる反省かも？
+でも、それを理解して、別途ダウンロードするまでにかなり戸惑った。とくにベーシック認証は資料がなかった。
+そんなこんなで、簡単なルーターはExppressの場合ドットで連結してシンプルに作れる。また、苦労したベーシック認証に関しては
+SnapShotsにsec7として保存する。なぜなら、最終的な成果物には含まれなくなってしまう。ログイン時に認証するようなロジックは、
+後で課題にしょうと思う。そして最後に少しSocketIOの解説が入るけど、前回もなにが問題か理解できなかったけど、今回も同じだ。
+とりあえずSnapShotsの中で記録として残してみる。sec7/public/socket.htmlとsocket.jsだ。
+
+前回、なかなか理解が進まなかった、SocketIOについて腰を据えて考えてみると、SocketIOそのものはそれ程複雑な仕組みではない。
+まずHttpServerのリスナーになる事がサーバー側のお約束で、クライアント側はSocketIOとの送受信のために
+スクリプトタグに<script src="/socket.io/socket.io.js"></script> と記述。でもsoket.io.jsは物理的なファイルではなく。
+ブラウザのメモリ上に存在する。こうする事でグローバル変数ioが使える。
+io.connect().on("event-name", data => this.fun); connectメソッドは、ユーザーがサーバにアクセスしたとに
+発火するイベントconnectionをサーバ側のSocketIOがリスナーする事でサーバとブラウザがシェイクハンドする。
+ブラウザ側は自分がリスティングしたいイベントに自分のコールバックメソッドを登録する事でサーバーから非同期に送受信できる。
+また、サーバー側のSocketIOは、リスナー全員や特定のリスナーなど送信する相手を選別できるAPIが有る。
+
+ソケットの理解が難しい原因は、ソケットその物の問題ではなく、サーバとクライアントやExppressなど
+未知の挙動が多い機能と共存しないと、働けないような性格の機能だからだ。例えば、前回理解出来なかったファイルの更新を見張って、
+更新が有ればブラウザ側にソケットで伝える機能の実装では、本書がブラウザ側のシェイクハンドでconnectにlocalhostのアドレスを
+渡しているけど、自分のバージョンではそれがエラーで処理が進まなかった。
+またサーバがブラウザにファイル一つを渡す処理とフォルダ一式を渡す処理が分かれている事も知らなかった。
+同一フォルダに依存するCSSやJSファイルがあるHTMLをファイル一つを渡す処理に渡すとブラウザはHTMLの解析中に
+存在しないフォルダを発見して不思議なエラーを吐く。そのようなファイルをブラウザに渡す場合はパッケージ全体を渡す処理で
+渡す必要がある。それが、express.static(path)だ。また渡したいファイル名がindex.html以外の場合は、続くチェーンで
+.get('/', (_,res) => res.redirect("./file_name")	が必要だ。
+
+ま～そんな訳で、今回はSocketIOについてもブラウザとサーバの特殊な事情についても理解が深まった
+
+
+SPAファイナル			A:\PJ\spa\spa.txt
+第1章　最初のシングルページアプリケーション　		A:\PJ\spa\SnapShots\sec1\sec.txt
+第2章　JavaScriptのおさらい					A:\PJ\spa\SnapShots\sec2\sec.txt
+第3章　シェルの開発 前半					A:\PJ\spa\SnapShots\sec3-1\sec.txt
+第3章　シェルの開発 後半					A:\PJ\spa\SnapShots\sec3-2\sec.txt
+第4章　機能モジュールの追加		前半		A:\PJ\spa\SnapShots\sec4-1\sec.txt
+第4章　機能モジュールの追加　	中編		A:\PJ\spa\SnapShots\sec4-2\sec.txt
+第4章　機能モジュールの追加　	後編		A:\PJ\spa\SnapShots\sec4-3\sec.txt
+第5章　モデルの構築							A:\PJ\spa\SnapShots\sec5\sec.txt
+第6章　モデルとデータモジュールの完成		A:\PJ\spa\SnapShots\sec6\sec.txt
+第7章　WEBサーバー							A:\PJ\spa\SnapShots\sec7\sec.txt
+
+GitHub アドレス			https://github.com/SakunM/spa
+SPAファイナルReadMe			A:\PJ\spa\readme.txt
+前々回の最終バージョン	A:\PJ\JS\all\spas\spa10
+前回の最終バージョン	A:\PJ\mamo2\langs\SPA
+今回のバージョン		A:\PJ\spa
+再々のSPA		A:\プログラミング\書籍サンプル\JS\JavaScript\SPA\再々のSPA.txt

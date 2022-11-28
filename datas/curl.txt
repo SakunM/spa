@@ -1,0 +1,10 @@
+Invoke-WebRequest -Uri "http://localhost:3000/user/create" -Method POST `
+  -Body (@{"name" = "hoge"; "css" = @{ "background" = "#fff"; "top" = 40; "left" = 50}} | ConvertTo-Json) `
+  -ContentType "application/json"
+
+curl http://localhost:3000/user/create -X POST ^
+  -H "ContentType: application/json" ^
+  -d "{\"name\": \"fuga\", \"css\": {\"background\": \"#fff\", \"top\": 40, \"left\": 40}}"
+
+
+

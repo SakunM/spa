@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO Test</title>
+    <script src="lib/jquery-1.9.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      $(() => {
+        let soc = io.connect();
+        soc.on("greeting", (data, fun) => {
+          let ans = confirm(data.message);
+          fun(ans);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Socket.IO Test</h1>
+  </body>
+</html>
+

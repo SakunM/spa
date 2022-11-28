@@ -1,0 +1,1 @@
+@( type invoke.ps1 ) | powershell -command -

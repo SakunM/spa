@@ -18,7 +18,7 @@ class Fake{
 
   willma(){
     if(this.funs.updatechat){
-      let user = this.getUser("id_05"), msg = `Hi there ${user.name}! Whilma here.`,
+      let user = this.getUser("id_05"), msg = `Hi there ${user.name}! Whilma herer.`,
         msgs = { destID: user._id, destName: user.name, senderID: "id_04", message: msg};
       this.funs.updatechat(msgs);
     }

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link href="imgs/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="lib/jquery-1.9.1.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <title>ソケットの練習</title>
+  <script>
+    io.connect().on("message", count => $("body").html(count));
+  </script>
+</head>
+<body>
+  Loading...
+</body>
+</html>

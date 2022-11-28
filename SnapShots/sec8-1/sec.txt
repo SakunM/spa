@@ -1,0 +1,65 @@
+第8章　サーバーデータベース  前編				A:\PJ\spa\SnapShots\sec8-1\sec.txt
+
+
+この章の前半はサーバ側のデータベースMongoDBの紹介だ、前半はSPAアプリに関係なく純粋にMongoDBの紹介に徹している。
+MongoDBはリレーショナルなデータベースではない。そしてSQLは使わずJSONとJavaScriptで操作できる。
+ただし、スキーマが存在しないので、金銭を扱うようなアプリには向かないかもしれない。
+
+mongoの設定で、見慣れない名前の設定、useUnifiedTopology(統一トポロジー)と言って、エラーに関するポリシーをだ。
+接続が成功しても、検索に失敗すると以前は、リトライ無しにエラーを返したけど、この設定を付けると30秒ぐらいは、
+リトライを繰り返して、その都度ログを吐いて30秒を過ぎるとエラーになるポリシーだ。
+
+章の中盤で、Postの対応がHTMLからではめんどくさいのでCurlコマンドで、Postメソッドをテストする場面がある。
+この章の内容は、最終的なアプリでは、採用されない。HTTPでのSocketIOを交えたシェイクハンドの後の送受信はSocketIOで行うからだ。
+以前の実装では、このトピックの情報は存在しない。実はこの実現にはExpress4に関する情報が必要だった。
+Postの一般的なデータフォーマットはHTMLのFormタグでのアクションの情報をreqestのbodyから取り込む事だ。
+JsonデータをPostで送る今回の試みは、Express4のとって特殊な状態なので、
+ルータの前段にexpress.json()ミドルウエアを組み込む必要が有った。それにCurlを使ってのテストでは、認証過程をパスする必要もある。
+
+今回は、本番では必要としない、これらのトピックも理解したい。また現在WindowではComのCurlコマンドの他にPowerShellの
+Invoke-WebRequestというコマンドも見つけた。ComのCurlはシングルクォードを認めないので、Json表現はエスケープだらけになる。
+A:\PJ\SPA\datas\curl.txt	の8行目を参照。PowerShellの場合は全く違った観点からConvertTo-Jsonをパイプに通す。
+
+PowerShellで入れ子のJsonの表現に少し嵌った。　バッククォートはComのキャレットと同じ効果だ。
+-Body (@{"name" = "hoge"; "css" = @{ "background" = "#fff"; "top" = 40; "left" = 50}} | ConvertTo-Json) `
+Comで、ダブルクォードをエスケープする事を考えるとこちらの方が良いかも。それにComで送ったJsonはApp.jsではなぜか
+'{"name": "hoge", "css": {"background": "#fff", "top": 40, "left": 40}}': ''
+こんな風にreq.bodyに格納されてしまう。なので、app.js#create では
+let body = Object.keys(req.body)[0];		Object.keysでreq.bodyのキーの配列を取り出し[0] で一番目のキーをbodyに格納して
+crud.create(req.params.type, JSON.parse(body), ans => res.send(ans.msg));		JSON.parseでJSのオブジェクトに変換
+これらの作業をしないと、crud.createはスキーマ違反を報告する。PowerShell版なら、ただres.bodyを渡すだけだ。
+ようやく、PowerShellの使い処を発見した感じだ。なので、psというホルダを増設してすこしPowerShellを勉強したい。
+
+PowerShell 関数の置き場
+
+
+
+
+
+
+
+
+
+
+
+
+SPAファイナル			A:\PJ\spa\spa.txt
+第1章　最初のシングルページアプリケーション　		A:\PJ\spa\SnapShots\sec1\sec.txt
+第2章　JavaScriptのおさらい					A:\PJ\spa\SnapShots\sec2\sec.txt
+第3章　シェルの開発 前半					A:\PJ\spa\SnapShots\sec3-1\sec.txt
+第3章　シェルの開発 後半					A:\PJ\spa\SnapShots\sec3-2\sec.txt
+第4章　機能モジュールの追加		前半		A:\PJ\spa\SnapShots\sec4-1\sec.txt
+第4章　機能モジュールの追加　	中編		A:\PJ\spa\SnapShots\sec4-2\sec.txt
+第4章　機能モジュールの追加　	後編		A:\PJ\spa\SnapShots\sec4-3\sec.txt
+第5章　モデルの構築							A:\PJ\spa\SnapShots\sec5\sec.txt
+第6章　モデルとデータモジュールの完成		A:\PJ\spa\SnapShots\sec6\sec.txt
+第7章　WEBサーバー							A:\PJ\spa\SnapShots\sec7\sec.txt
+第8章　サーバーデータベース					A:\PJ\spa\SnapShots\sec8\sec.txt
+
+
+GitHub アドレス			https://github.com/SakunM/spa
+SPAファイナルReadMe			A:\PJ\spa\readme.txt
+前々回の最終バージョン	A:\PJ\JS\all\spas\spa10
+前回の最終バージョン	A:\PJ\mamo2\langs\SPA
+今回のバージョン		A:\PJ\spa
+再々のSPA		A:\プログラミング\書籍サンプル\JS\JavaScript\SPA\再々のSPA.txt

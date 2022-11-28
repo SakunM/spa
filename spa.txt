@@ -39,7 +39,12 @@ JavaScriptやHTMLやCSSを改良していくスタイルだ。自分の勘違い
 第5章　モデルの構築							A:\PJ\spa\SnapShots\sec5\sec.txt
 
 第6章　モデルとデータモジュールの完成			A:\PJ\spa\SnapShots\sec6\sec.txt
-　
+
+第7章　WEBサーバー							A:\PJ\spa\SnapShots\sec7\sec.txt
+
+第8章　サーバーデータベース		前編		A:\PJ\spa\SnapShots\sec8-1\sec.txt
+第8章　サーバーデータベース		後編		A:\PJ\spa\SnapShots\sec8-2\sec.txt
+
 A:\PJ\spa\sec.txt
 
 

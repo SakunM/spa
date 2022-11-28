@@ -1,0 +1,11 @@
+.wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+
+  div {
+    border: thin solid #888;
+    border-radius: 3px;
+  }
+}

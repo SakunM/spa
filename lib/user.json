@@ -1,0 +1,13 @@
+{ 
+  "type": "object",
+  "additionalProperties": false, "properties": {
+    "_id"   : { "type": "string", "minLength": 24, "maxlength": 24},
+    "name"  : { "type": "string", "minLength": 2,  "maxLength": 127},
+    "online": { "type": "boolean"},
+    "css"   : { "type": "object", "additionalProperties": false, "properties": {
+      "background": { "required": true, "type": "string", "minLength": 0, "maxLength": 25},
+      "top"       : { "required": true, "type": "integer"},
+      "left"      : { "required": true, "type": "integer"}
+    }}
+  }
+}
