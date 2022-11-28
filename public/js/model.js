@@ -1,6 +1,7 @@
 class Model{
   constructor(){
-    this.config = { anon_id: "a0", event: $.gevent, sio: new Fake(), helper: new ModelUtil(this)};
+    let sio; try{sio = new Data();} catch(_) { sio = new Fake();}
+    this.config = { anon_id: "a0", event: $.gevent, sio, helper: new ModelUtil(this)};
     this.state = { anon: null, cid_ser: 0, cid: {}, db: TAFFY(), user: null, ser: 0};
     this.chat = { connect: null, online: null, chatee: null};
   }
